@@ -14,20 +14,12 @@ import App from './App';
 // Instantiate required constructor fields
 const cache = new InMemoryCache();
 const link = new HttpLink({
-    uri: 'https://graphqlpokemon.favware.tech/',
+    uri: 'https://rickandmortyapi.com/graphql',
 });
 
 export const client = new ApolloClient({
     cache,
     link,
-    name: 'graphql-pokemon-client',
-    version: '1.0',
-    queryDeduplication: false,
-    defaultOptions: {
-        watchQuery: {
-            fetchPolicy: 'cache-and-network',
-        },
-    },
 });
 
 const root = ReactDOM.createRoot(
