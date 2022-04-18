@@ -7,8 +7,9 @@ import {
     HttpLink,
     InMemoryCache,
 } from '@apollo/client';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 // Instantiate required constructor fields
 const cache = new InMemoryCache();
@@ -35,7 +36,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <App />
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
         </ApolloProvider>
     </React.StrictMode>
 );
