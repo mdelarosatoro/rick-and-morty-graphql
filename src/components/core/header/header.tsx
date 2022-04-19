@@ -14,7 +14,9 @@ function Header() {
         <header className="bg-violet-400 h-[100px] flex justify-center items-center">
             <nav>
                 {navLinks.map((item) => (
-                    <a href={item.path}>{item.label}</a>
+                    <a key={item.label} href={item.path}>
+                        {item.label}
+                    </a>
                 ))}
             </nav>
         </header>

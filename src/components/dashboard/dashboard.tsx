@@ -24,17 +24,20 @@ function Dashboard() {
     if (error) return <p>Error! {error.message}</p>;
 
     return (
-        <div className="min-h-[calc(100vh-200px)]">
+        <>
             <h1 className="text-3xl font-bold underline">
                 Rick and Morty GraphQL
             </h1>
             <div className="flex items-center justify-center flex-wrap gap-16">
                 {data &&
                     data.characters.results.map((character: CharacterI) => (
-                        <DashboardCharacter character={character} />
+                        <DashboardCharacter
+                            key={character.id}
+                            character={character}
+                        />
                     ))}
             </div>
-        </div>
+        </>
     );
 }
 

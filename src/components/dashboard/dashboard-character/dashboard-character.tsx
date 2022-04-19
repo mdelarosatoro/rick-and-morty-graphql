@@ -8,7 +8,7 @@ function DashboardCharacter({ character }: { character: CharacterI }) {
                     <img
                         className="rounded-full"
                         src={character.image}
-                        alt=""
+                        alt={character.name}
                     />
                 </div>
                 <p className="w-32 text-center">{character.name}</p>
