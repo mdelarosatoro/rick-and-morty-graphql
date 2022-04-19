@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { CharacterI } from '../../../interfaces/character.interfaces';
+import { CharacterI } from '../../../../interfaces/character.interfaces';
 
-function DashboardCharacter({ character }: { character: CharacterI }) {
+function CharacterItem({ character }: { character: CharacterI }) {
     return (
         <Link to={`/character/${character.id}`}>
             <div className="flex flex-col items-center justify-center hover:scale-105 transition-all cursor-pointer	">
@@ -18,4 +18,4 @@ function DashboardCharacter({ character }: { character: CharacterI }) {
     );
 }
 
-export default DashboardCharacter;
+export default CharacterItem;

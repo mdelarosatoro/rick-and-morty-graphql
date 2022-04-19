@@ -1,9 +1,9 @@
 import { ChangeEvent, useContext } from 'react';
-import { CharacterContext } from '../../context/character-context';
+import { LocationContext } from '../../context/location-context';
 import Gallery from './gallery/gallery';
 
-function Dashboard() {
-    const { setSearch, search, setPage } = useContext(CharacterContext);
+function Locations() {
+    const { setSearch, search, setPage } = useContext(LocationContext);
 
     const handleChange = (e: ChangeEvent) => {
         const target = e.target as HTMLInputElement;
@@ -12,9 +12,7 @@ function Dashboard() {
     };
     return (
         <div className="flex flex-col justify-center items-center gap-4">
-            <h1 className="text-3xl font-bold underline">
-                Rick and Morty GraphQL
-            </h1>
+            <h1 className="text-3xl font-bold underline">Locations</h1>
             <input
                 value={search}
                 onChange={handleChange}
@@ -28,4 +26,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Locations;

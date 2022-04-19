@@ -1,11 +1,11 @@
 import { SyntheticEvent, useContext } from 'react';
-import { CharacterContext } from '../../../context/character-context';
-import { CharacterI } from '../../../interfaces/character.interfaces';
-import CharacterItem from './gallery-item/gallery-item';
+import { LocationContext } from '../../../context/location-context';
+import { LocationI } from '../../../interfaces/location.interfaces';
+import LocationItem from './gallery-item/gallery-item';
 
 function Gallery() {
     const { loading, error, data, page, setPage, numOfPages } =
-        useContext(CharacterContext);
+        useContext(LocationContext);
 
     const handleClick = (e: SyntheticEvent): void => {
         const target = e.target as HTMLInputElement;
@@ -20,17 +20,14 @@ function Gallery() {
     };
 
     if (loading) return <p className="">Loading...</p>;
-    if (error) return <p>We found no characters matching your criteria</p>;
+    if (error) return <p>We found no locations matching your criteria</p>;
 
     return (
         <div className="flex flex-col gap-10 my-6">
             <div className="flex items-center justify-center flex-wrap gap-16">
                 {data &&
-                    data.characters.results.map((character: CharacterI) => (
-                        <CharacterItem
-                            key={character.id}
-                            character={character}
-                        />
+                    data.locations.results.map((location: LocationI) => (
+                        <LocationItem key={location.id} location={location} />
                     ))}
             </div>
             <div className="flex flex-col gap-2 items-center justify-center">

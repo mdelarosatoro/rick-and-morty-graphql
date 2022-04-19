@@ -4,6 +4,10 @@ import Header from './components/core/header/header';
 import Footer from './components/core/footer/footer';
 import Dashboard from './components/dashboard/dashboard';
 import CharacterDetails from './components/character-details/character-details';
+import { CharacterContextProvider } from './context/character-context';
+import { LocationContextProvider } from './context/location-context';
+import Locations from './components/locations/locations';
+import LocationDetails from './components/location-details/locations-details';
 
 function App() {
     return (
@@ -12,10 +16,29 @@ function App() {
             <main className="min-h-[calc(100vh-200px)]">
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
-                    <Route path="/characters" element={<Dashboard />} />
+                    <Route
+                        path="/characters"
+                        element={
+                            <CharacterContextProvider>
+                                <Dashboard />
+                            </CharacterContextProvider>
+                        }
+                    />
                     <Route
                         path="/character/:idCharacter"
                         element={<CharacterDetails />}
+                    />
+                    <Route
+                        path="/locations"
+                        element={
+                            <LocationContextProvider>
+                                <Locations />
+                            </LocationContextProvider>
+                        }
+                    />
+                    <Route
+                        path="/location/:idLocation"
+                        element={<LocationDetails />}
                     />
                 </Routes>
             </main>
