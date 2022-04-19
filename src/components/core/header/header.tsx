@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Header() {
     const navLinks = [
         {
@@ -5,8 +7,8 @@ function Header() {
             label: 'Home',
         },
         {
-            path: '/pokemons',
-            label: 'Pokemons',
+            path: '/characters',
+            label: 'Characters',
         },
     ];
 
@@ -14,9 +16,9 @@ function Header() {
         <header className="bg-violet-400 h-[100px] flex justify-center items-center">
             <nav>
                 {navLinks.map((item) => (
-                    <a key={item.label} href={item.path}>
+                    <Link key={item.label} to={item.path}>
                         {item.label}
-                    </a>
+                    </Link>
                 ))}
             </nav>
         </header>

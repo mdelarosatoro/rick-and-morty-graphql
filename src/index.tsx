@@ -10,6 +10,7 @@ import {
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
+import { ContextProvider } from './context/context';
 
 // Instantiate required constructor fields
 const cache = new InMemoryCache();
@@ -28,9 +29,11 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
+            <ContextProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </ContextProvider>
         </ApolloProvider>
     </React.StrictMode>
 );

@@ -12,7 +12,7 @@ function App() {
             <main className="min-h-[calc(100vh-200px)]">
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
-                    <Route path="/pokemons" element={<Dashboard />} />
+                    <Route path="/characters" element={<Dashboard />} />
                     <Route
                         path="/character/:idCharacter"
                         element={<CharacterDetails />}
