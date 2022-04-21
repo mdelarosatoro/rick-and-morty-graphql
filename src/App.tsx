@@ -8,14 +8,15 @@ import { CharacterContextProvider } from './context/character-context';
 import { LocationContextProvider } from './context/location-context';
 import Locations from './components/locations/locations';
 import LocationDetails from './components/location-details/locations-details';
+import Home from './components/home/home';
 
 function App() {
     return (
         <>
             <Header />
-            <main className="min-h-[calc(100vh-200px)]">
+            <main className="flex flex-col min-h-[calc(100vh-200px)]">
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/" element={<Home />} />
                     <Route
                         path="/characters"
                         element={

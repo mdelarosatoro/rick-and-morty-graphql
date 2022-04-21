@@ -1,6 +1,8 @@
 import { ChangeEvent, useContext } from 'react';
 import { CharacterContext } from '../../context/character-context';
-import Gallery from './gallery/gallery';
+import GalleryContainer from '../core/gallery-container/gallery-container';
+import Gallery from '../core/gallery/gallery';
+import Title from '../core/title/title';
 
 function Dashboard() {
     const { setSearch, search, setPage } = useContext(CharacterContext);
@@ -11,20 +13,18 @@ function Dashboard() {
         setPage(1);
     };
     return (
-        <div className="flex flex-col justify-center items-center gap-4">
-            <h1 className="text-3xl font-bold underline">
-                Rick and Morty GraphQL
-            </h1>
+        <GalleryContainer>
+            <Title text="Characters" />
             <input
                 value={search}
                 onChange={handleChange}
                 type="text"
                 name=""
                 id=""
-                className="border-2"
+                className="border-2 border-violet-900 rounded-lg px-2 py-1"
             />
-            <Gallery />
-        </div>
+            <Gallery type="characters" />
+        </GalleryContainer>
     );
 }
 
