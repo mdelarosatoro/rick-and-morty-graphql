@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { client } from '../../index';
-import InfoContainer from './info-container/info-container';
+import InfoContainer from '../core/info-container/info-container';
 
 function LocationDetails() {
     const { idLocation } = useParams();
