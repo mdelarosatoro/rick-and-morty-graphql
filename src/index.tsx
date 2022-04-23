@@ -7,35 +7,31 @@ import {
     HttpLink,
     InMemoryCache,
 } from '@apollo/client';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 // Instantiate required constructor fields
 const cache = new InMemoryCache();
 const link = new HttpLink({
-    uri: 'https://graphqlpokemon.favware.tech/',
+    uri: 'https://rickandmortyapi.com/graphql',
 });
 
 export const client = new ApolloClient({
     cache,
     link,
-    name: 'graphql-pokemon-client',
-    version: '1.0',
-    queryDeduplication: false,
-    defaultOptions: {
-        watchQuery: {
-            fetchPolicy: 'cache-and-network',
-        },
-    },
 });
 
 const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
+    (document.getElementById('root') as HTMLElement) ||
+        document.createElement('div')
 );
 root.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <App />
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
         </ApolloProvider>
     </React.StrictMode>
 );
